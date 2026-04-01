@@ -16,6 +16,8 @@ db.exec(`
     )
 `);
 
+// Seed data wordt alleen ingevoegd als de tabel leeg is
+// Zo blijven zelf toegevoegde spots bewaard na een herstart
 const count = db.prepare("SELECT COUNT(*) as count FROM spots").get();
 
 if (count.count === 0) {
@@ -24,11 +26,55 @@ if (count.count === 0) {
         VALUES (?, ?, ?, ?, ?, ?, ?)
     `);
 
-    insert.run("Bao Boys", "Bao buns", "Amsterdam", "Heerlijke gestoomde broodjes met Aziatische vulling.", "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400", null, "https://maps.google.com");
-    insert.run("Taco Loco", "Taco's", "Rotterdam", "Authentieke Mexicaanse taco's van de grill.", "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400", null, "https://maps.google.com");
-    insert.run("Wok on Wheels", "Noedels", "Utrecht", "Verse roerbak noedels met keuze uit toppings.", "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400", null, "https://maps.google.com");
-    insert.run("Bubble Dream", "Bubble tea", "Den Haag", "De beste bubble tea van de stad, 20+ smaken.", "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400", null, "https://maps.google.com");
-    insert.run("Sushi Straat", "Sushi", "Amsterdam", "Verse sushi rolls gemaakt voor jouw ogen.", "https://images.unsplash.com/photo-1553621042-f6e147245754?w=400", null, "https://maps.google.com");
+    insert.run(
+        "Bao Boys",
+        "Bao buns",
+        "Amsterdam",
+        "Heerlijke gestoomde broodjes met Aziatische vulling. Kies uit pulled pork, crispy chicken of een vegan optie.",
+        "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=1200",
+        null,
+        "https://www.google.com/maps/search/?api=1&query=Bao+Boys+Amsterdam"
+    );
+
+    insert.run(
+        "Taco Loco",
+        "Taco's",
+        "Rotterdam",
+        "Authentieke Mexicaanse taco's van de grill. Gemaakt met zelfgemaakte tortilla's en verse salsa.",
+        "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=1200",
+        null,
+        "https://www.google.com/maps/search/?api=1&query=Taco+Rotterdam"
+    );
+
+    insert.run(
+        "Wok on Wheels",
+        "Noedels",
+        "Utrecht",
+        "Verse roerbak noedels met keuze uit toppings. Snel, lekker en bereid voor jouw ogen.",
+        "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=1200",
+        null,
+        "https://www.google.com/maps/search/?api=1&query=Wok+Utrecht"
+    );
+
+    insert.run(
+        "Bubble Dream",
+        "Bubble tea",
+        "Den Haag",
+        "De beste bubble tea van de stad met meer dan 20 smaken. Kies je eigen suikergehalte en topping.",
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200",
+        null,
+        "https://www.google.com/maps/search/?api=1&query=Bubble+tea+Den+Haag"
+    );
+
+    insert.run(
+        "Sushi Straat",
+        "Sushi",
+        "Amsterdam",
+        "Verse sushi rolls gemaakt voor jouw ogen. Van klassieke nigiri tot creatieve fusion rolls.",
+        "https://images.unsplash.com/photo-1553621042-f6e147245754?w=1200",
+        null,
+        "https://www.google.com/maps/search/?api=1&query=Sushi+Amsterdam"
+    );
 }
 
 export default db;
