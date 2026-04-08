@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(cmd /c \"taskkill /F /PID 31476\")",
-      "Bash(del \"c:\\\\Users\\\\tayya\\\\streetfood_eindopdracht\\\\streetfood-spotter\\\\.next\\\\dev\\\\lock\")"
-    ]
-  }
-}
